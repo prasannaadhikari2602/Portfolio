@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* section{
+    scroll-behavior: smooth;
+    scroll-margin-top: 80px;
+} */

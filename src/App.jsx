@@ -10,6 +10,7 @@ import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
 import Journey from "./sections/Journey";
 import Contact from "./sections/Contact";
+import Footer from "./components/Footer";
 
 const App = () => {
   const homeRef = useRef(null);
@@ -69,6 +70,8 @@ const App = () => {
 
         <Route path="*" element={<Notfound />} />
       </Routes>
+
+      <Footer />
     </div>
   );
 };

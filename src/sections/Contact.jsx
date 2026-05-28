@@ -3,8 +3,10 @@ import { Mail, MapPin } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
+
 const Contact = () => {
   const [result, setResult] = useState("");
+
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -24,15 +26,18 @@ const Contact = () => {
     }
   };
 
+
   const socials = [
     { label: "GitHub",    icon: faGithub,    href: "https://github.com/prasannaadhikari2602" },
     { label: "LinkedIn",  icon: faLinkedin,  href: "https://www.linkedin.com/in/prasanna-adhikari-52977a409/" },
     { label: "Instagram", icon: faInstagram, href: "https://www.instagram.com/adhikari__neeshan/" },
   ];
 
+
   return (
     <div className="bg-black text-white px-6 py-24">
       <div className="max-w-6xl mx-auto">
+
 
         {/* Heading */}
         <div className="text-center mb-16">
@@ -50,11 +55,14 @@ const Contact = () => {
           </p>
         </div>
 
+
         {/* Main Grid */}
         <div className="grid lg:grid-cols-2 gap-10 items-start">
 
+
           {/* Left — Info */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 min-w-0">
+
 
             <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:border-[#AC58F5]/40 transition-all duration-300">
               <p className="text-white/70 leading-relaxed">
@@ -63,30 +71,33 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-all duration-300 flex items-center gap-5">
+
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-all duration-300 flex items-center gap-5 min-w-0">
               <div className="w-12 h-12 rounded-2xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
                 <Mail size={20} className="text-[#AC58F5]" />
               </div>
-              <div>
+              <div className="min-w-0 flex-1">
                 <p className="text-white/50 text-xs uppercase tracking-widest mb-1">Email</p>
                 <a
                   href="mailto:prasannaadhikari2602@gmail.com" target="blank"
-                  className="text-white/90 hover:text-[#AC58F5] transition text-sm font-medium"
+                  className="text-white/90 hover:text-[#AC58F5] transition text-sm font-medium break-all"
                 >
                   prasannaadhikari2602@gmail.com
                 </a>
               </div>
             </div>
 
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-all duration-300 flex items-center gap-5">
+
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-all duration-300 flex items-center gap-5 min-w-0">
               <div className="w-12 h-12 rounded-2xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
                 <MapPin size={20} className="text-[#AC58F5]" />
               </div>
-              <div>
+              <div className="min-w-0 flex-1">
                 <p className="text-white/50 text-xs uppercase tracking-widest mb-1">Location</p>
                 <p className="text-white/90 text-sm font-medium">Kathmandu, Nepal</p>
               </div>
             </div>
+
 
             {/* Social Links */}
             <div className="bg-white/5 border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-all duration-300">
@@ -108,13 +119,17 @@ const Contact = () => {
               </div>
             </div>
 
+
           </div>
+
 
           {/* Right — Form */}
           <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:border-[#AC58F5]/40 transition-all duration-300">
             <h2 className="text-2xl font-semibold mb-8">Send a Message</h2>
 
+
             <form onSubmit={onSubmit} className="flex flex-col gap-5">
+
 
               <div className="flex flex-col gap-2">
                 <label className="text-white/50 text-xs uppercase tracking-widest">Name</label>
@@ -129,6 +144,7 @@ const Contact = () => {
                 />
               </div>
 
+
               <div className="flex flex-col gap-2">
                 <label className="text-white/50 text-xs uppercase tracking-widest">Email</label>
                 <input
@@ -141,6 +157,7 @@ const Contact = () => {
                              hover:border-white/20 transition-all duration-300"
                 />
               </div>
+
 
               <div className="flex flex-col gap-2">
                 <label className="text-white/50 text-xs uppercase tracking-widest">Message</label>
@@ -155,6 +172,7 @@ const Contact = () => {
                 />
               </div>
 
+
               <button
                 type="submit"
                 className="mt-2 w-full py-3 rounded-xl bg-[#AC58F5] hover:bg-[#9b45e8]
@@ -163,6 +181,7 @@ const Contact = () => {
               >
                 Send Message
               </button>
+
 
               {result && (
                 <p className={`text-center text-sm mt-1 ${
@@ -176,13 +195,16 @@ const Contact = () => {
                 </p>
               )}
 
+
             </form>
           </div>
+
 
         </div>
       </div>
     </div>
   );
 };
+
 
 export default Contact;

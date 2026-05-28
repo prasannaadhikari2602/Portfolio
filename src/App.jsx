@@ -40,27 +40,27 @@ const App = () => {
           path="/"
           element={
             <div>
-              <section ref={homeRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center'>
+              <section ref={homeRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center py-5'>
                 <Home />
               </section>
 
-              <section ref={aboutRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center'>
+              <section ref={aboutRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center py-5'>
                 <About />
               </section>
 
-              <section ref={skillsRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center'>
+              <section ref={skillsRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center py-5'>
                 <Skills />
               </section>
 
-              <section ref={projectRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center'>
+              <section ref={projectRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center py-5'>
                 <Projects />
               </section>
 
-              <section ref={journeyRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center'>
+              <section ref={journeyRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center py-5'>
                 <Journey />
               </section>
 
-              <section ref={contactRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center'>
+              <section ref={contactRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center py-5'>
                 <Contact />
               </section>
             </div>

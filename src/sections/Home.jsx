@@ -1,8 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
+import { faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Profile from "../assets/Profile.png";
 const Home = () => {
   return (
@@ -64,10 +64,10 @@ const Home = () => {
         </a>
 
         <a
-          href="mailto:prasannaadhikari2602@gmail.com"
+          href="https://www.instagram.com/adhikari__neeshan/" target="blank"
           className="hover:text-[#AC58F5] transition duration-300 ease-in-out text-4xl"
         >
-          <FontAwesomeIcon icon={faEnvelope} />
+          <FontAwesomeIcon icon={faInstagram} />
         </a>
       </div>
     </div>

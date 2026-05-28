@@ -70,10 +70,10 @@ const Contact = () => {
               <div>
                 <p className="text-white/50 text-xs uppercase tracking-widest mb-1">Email</p>
                 <a
-                  href="Prasannaadhikari2602@gmail.com"
+                  href="mailto:prasannaadhikari2602@gmail.com" target="blank"
                   className="text-white/90 hover:text-[#AC58F5] transition text-sm font-medium"
                 >
-                  Prasannaadhikari2602@gmail.com
+                  prasannaadhikari2602@gmail.com
                 </a>
               </div>
             </div>

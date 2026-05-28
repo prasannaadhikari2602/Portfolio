@@ -40,27 +40,27 @@ const App = () => {
           path="/"
           element={
             <div>
-              <section ref={homeRef} className='h-[calc(100vh-80px)] bg-black scroll-mt-20'>
+              <section ref={homeRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center'>
                 <Home />
               </section>
 
-              <section ref={aboutRef} className='h-[calc(100vh-80px)] bg-black scroll-mt-20'>
+              <section ref={aboutRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center'>
                 <About />
               </section>
 
-              <section ref={skillsRef} className='h-[calc(100vh-80px)] bg-black scroll-mt-20'>
+              <section ref={skillsRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center'>
                 <Skills />
               </section>
 
-              <section ref={projectRef} className='h-[calc(100vh-80px)] bg-black scroll-mt-20'>
+              <section ref={projectRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center'>
                 <Projects />
               </section>
 
-              <section ref={journeyRef} className='h-[calc(100vh-80px)] bg-black scroll-mt-20'>
+              <section ref={journeyRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center'>
                 <Journey />
               </section>
 
-              <section ref={contactRef} className='h-[calc(100vh-80px)] bg-black scroll-mt-20'>
+              <section ref={contactRef} className='min-h-[calc(100vh-80px)] bg-black scroll-mt-20 flex justify-center items-center'>
                 <Contact />
               </section>
             </div>

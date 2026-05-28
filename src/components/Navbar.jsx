@@ -108,7 +108,7 @@ const Navbar = ({ refs }) => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.ref)}
-              className="w-full h-15 flex items-center justify-center hover:bg-[#AC58F5] transition-all duration-300 border-b border-white/10"
+              className="w-full h-15 flex items-center justify-center hover:bg-[#AC58F5] transition-all duration-300 border-b border-white/10 bg-black"
             >
               {item.text}
             </button>

@@ -67,24 +67,16 @@ const About = () => {
               <div className="w-12 h-12 rounded-2xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
                 <GraduationCap className="text-[#AC58F5]" />
               </div>
-
               <div>
                 <h2 className="text-lg font-semibold">Education</h2>
-                <p className="text-white/50 text-xs mt-0.5">
-                  Academic Background
-                </p>
+                <p className="text-white/50 text-xs mt-0.5">Academic Background</p>
               </div>
-
-              <div className="mt-auto">
+              <div>
                 <h3 className="text-sm font-medium text-white/90">
                   Bachelor of Computer Applications
                 </h3>
-                <p className="mt-1 text-white/60 text-sm">
-                  Kathmandu Business Campus
-                </p>
-                <p className="text-white/40 text-xs mt-0.5">
-                  Tribhuvan University Affiliated
-                </p>
+                <p className="mt-1 text-white/60 text-sm">Kathmandu Business Campus</p>
+                <p className="text-white/40 text-xs mt-0.5">Tribhuvan University Affiliated</p>
               </div>
             </div>
 
@@ -93,15 +85,11 @@ const About = () => {
               <div className="w-12 h-12 rounded-2xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
                 <Target className="text-[#AC58F5]" />
               </div>
-
               <div>
                 <h2 className="text-lg font-semibold">Career Goals</h2>
-                <p className="text-white/50 text-xs mt-0.5">
-                  Future Aspirations
-                </p>
+                <p className="text-white/50 text-xs mt-0.5">Future Aspirations</p>
               </div>
-
-              <p className="text-white/60 text-sm leading-relaxed mt-auto">
+              <p className="text-white/60 text-sm leading-relaxed">
                 Aspiring to become a skilled full-stack developer and contribute
                 to innovative software solutions that scale.
               </p>
@@ -112,15 +100,13 @@ const About = () => {
               <div className="w-12 h-12 rounded-2xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
                 <Heart className="text-[#AC58F5]" />
               </div>
-
               <div>
                 <h2 className="text-lg font-semibold">Interests</h2>
                 <p className="text-white/50 text-xs mt-0.5">Things I Love</p>
               </div>
-
               <p className="text-white/60 text-sm leading-relaxed">
-                Web development, UI/UX design, exploring new frameworks,
-                contributing to open source, and solving complex problems.
+                Web development, learning frameworks
+                and solving complex problems.
               </p>
             </div>
 
@@ -129,25 +115,20 @@ const About = () => {
               <div className="w-12 h-12 rounded-2xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
                 <Globe className="text-[#AC58F5]" />
               </div>
-
               <div>
                 <h2 className="text-lg font-semibold">Content Creation</h2>
-                <p className="text-white/50 text-xs mt-0.5">
-                  Tech Sharing Page
-                </p>
+                <p className="text-white/50 text-xs mt-0.5">Tech Sharing Page</p>
               </div>
-
               <p className="text-white/60 text-sm leading-relaxed">
                 I manage a content page focused on web development and
                 programming, where I regularly share roadmaps, study notes, and
                 the latest tech updates, along with other valuable resources for
                 developers.
               </p>
-
               <a
                 href="https://www.instagram.com/it__bato/"
                 target="blank"
-                className="inline-flex items-center gap-2 mt-auto text-[#AC58F5] hover:text-purple-400 transition text-sm font-medium"
+                className="inline-flex items-center gap-2 text-[#AC58F5] hover:text-purple-400 transition text-sm font-medium"
               >
                 <Globe size={15} />
                 Visit My Page

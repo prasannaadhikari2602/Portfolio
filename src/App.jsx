@@ -40,27 +40,27 @@ const App = () => {
           path="/"
           element={
             <div>
-              <section ref={homeRef} className='h-[calc(100vh-80px)] bg-black'>
+              <section ref={homeRef} className='h-[calc(100vh-80px)] bg-black scroll-mt-20'>
                 <Home />
               </section>
 
-              <section ref={aboutRef} className='h-[calc(100vh-80px)] bg-black'>
+              <section ref={aboutRef} className='h-[calc(100vh-80px)] bg-black scroll-mt-20'>
                 <About />
               </section>
 
-              <section ref={skillsRef} className='h-[calc(100vh-80px)] bg-black'>
+              <section ref={skillsRef} className='h-[calc(100vh-80px)] bg-black scroll-mt-20'>
                 <Skills />
               </section>
 
-              <section ref={projectRef} className='h-[calc(100vh-80px)] bg-black'>
+              <section ref={projectRef} className='h-[calc(100vh-80px)] bg-black scroll-mt-20'>
                 <Projects />
               </section>
 
-              <section ref={journeyRef} className='h-[calc(100vh-80px)] bg-black'>
+              <section ref={journeyRef} className='h-[calc(100vh-80px)] bg-black scroll-mt-20'>
                 <Journey />
               </section>
 
-              <section ref={contactRef} className='h-[calc(100vh-80px)] bg-black'>
+              <section ref={contactRef} className='h-[calc(100vh-80px)] bg-black scroll-mt-20'>
                 <Contact />
               </section>
             </div>

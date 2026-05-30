@@ -7,7 +7,6 @@ import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-
 const Contact = () => {
   const [result, setResult] = useState("");
 
-
   const onSubmit = async (event) => {
     event.preventDefault();
     setResult("Sending...");
@@ -26,18 +25,19 @@ const Contact = () => {
     }
   };
 
-
   const socials = [
     { label: "GitHub",    icon: faGithub,    href: "https://github.com/prasannaadhikari2602" },
     { label: "LinkedIn",  icon: faLinkedin,  href: "https://www.linkedin.com/in/prasanna-adhikari-52977a409/" },
     { label: "Instagram", icon: faInstagram, href: "https://www.instagram.com/adhikari__neeshan/" },
   ];
 
+  // transition-colors only (not transition-all) — prevents GPU compositing glitch on mobile WebKit
+  const cardBase =
+    "bg-white/5 border border-white/10 rounded-3xl hover:border-[#AC58F5]/40 transition-colors duration-300";
 
   return (
     <div className="bg-black text-white px-6 py-24">
       <div className="max-w-6xl mx-auto">
-
 
         {/* Heading */}
         <div className="text-center mb-16">
@@ -55,40 +55,37 @@ const Contact = () => {
           </p>
         </div>
 
-
         {/* Main Grid */}
         <div className="grid lg:grid-cols-2 gap-10 items-start">
-
 
           {/* Left — Info */}
           <div className="flex flex-col gap-6 min-w-0">
 
-
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:border-[#AC58F5]/40 transition-all duration-300">
+            <div className={`${cardBase} p-8`}>
               <p className="text-white/70 leading-relaxed">
                 I'm always open to discussing new projects, creative ideas, or
                 opportunities to be part of your vision. Feel free to reach out!
               </p>
             </div>
 
-
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-all duration-300 flex items-center gap-5 min-w-0">
+            <div className={`${cardBase} p-6 flex items-center gap-5 min-w-0`}>
               <div className="w-12 h-12 rounded-2xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
                 <Mail size={20} className="text-[#AC58F5]" />
               </div>
               <div className="min-w-0 flex-1">
                 <p className="text-white/50 text-xs uppercase tracking-widest mb-1">Email</p>
                 <a
-                  href="mailto:prasannaadhikari2602@gmail.com" target="blank"
-                  className="text-white/90 hover:text-[#AC58F5] transition text-sm font-medium break-all"
+                  href="mailto:prasannaadhikari2602@gmail.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-white/90 hover:text-[#AC58F5] transition-colors duration-300 text-sm font-medium break-all"
                 >
                   prasannaadhikari2602@gmail.com
                 </a>
               </div>
             </div>
 
-
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-all duration-300 flex items-center gap-5 min-w-0">
+            <div className={`${cardBase} p-6 flex items-center gap-5 min-w-0`}>
               <div className="w-12 h-12 rounded-2xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
                 <MapPin size={20} className="text-[#AC58F5]" />
               </div>
@@ -98,19 +95,19 @@ const Contact = () => {
               </div>
             </div>
 
-
             {/* Social Links */}
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-all duration-300">
+            <div className={`${cardBase} p-6`}>
               <p className="text-white/50 text-xs uppercase tracking-widest mb-4">Social Links</p>
               <div className="flex gap-3 flex-wrap">
                 {socials.map((s) => (
                   <a
                     key={s.label}
                     href={s.href}
-                    target="blank"
+                    target="_blank"
+                    rel="noreferrer"
                     className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10
                                text-white/70 text-sm hover:border-[#AC58F5]/50 hover:text-[#AC58F5]
-                               transition-all duration-300"
+                               transition-colors duration-300"
                   >
                     <FontAwesomeIcon icon={s.icon} />
                     {s.label}
@@ -119,17 +116,13 @@ const Contact = () => {
               </div>
             </div>
 
-
           </div>
 
-
           {/* Right — Form */}
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:border-[#AC58F5]/40 transition-all duration-300">
+          <div className={`${cardBase} p-8`}>
             <h2 className="text-2xl font-semibold mb-8">Send a Message</h2>
 
-
             <form onSubmit={onSubmit} className="flex flex-col gap-5">
-
 
               <div className="flex flex-col gap-2">
                 <label className="text-white/50 text-xs uppercase tracking-widest">Name</label>
@@ -140,10 +133,9 @@ const Contact = () => {
                   placeholder="Your name"
                   className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
                              placeholder:text-white/30 focus:outline-none focus:border-[#AC58F5]/60
-                             hover:border-white/20 transition-all duration-300"
+                             hover:border-white/20 transition-colors duration-300"
                 />
               </div>
-
 
               <div className="flex flex-col gap-2">
                 <label className="text-white/50 text-xs uppercase tracking-widest">Email</label>
@@ -154,10 +146,9 @@ const Contact = () => {
                   placeholder="your.email@example.com"
                   className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
                              placeholder:text-white/30 focus:outline-none focus:border-[#AC58F5]/60
-                             hover:border-white/20 transition-all duration-300"
+                             hover:border-white/20 transition-colors duration-300"
                 />
               </div>
-
 
               <div className="flex flex-col gap-2">
                 <label className="text-white/50 text-xs uppercase tracking-widest">Message</label>
@@ -168,20 +159,18 @@ const Contact = () => {
                   rows={5}
                   className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
                              placeholder:text-white/30 focus:outline-none focus:border-[#AC58F5]/60
-                             hover:border-white/20 transition-all duration-300 resize-none"
+                             hover:border-white/20 transition-colors duration-300 resize-none"
                 />
               </div>
-
 
               <button
                 type="submit"
                 className="mt-2 w-full py-3 rounded-xl bg-[#AC58F5] hover:bg-[#9b45e8]
-                           text-white font-semibold text-sm transition-all duration-300
+                           text-white font-semibold text-sm transition-colors duration-300
                            hover:shadow-lg hover:shadow-[#AC58F5]/20 active:scale-[0.98]"
               >
                 Send Message
               </button>
-
 
               {result && (
                 <p className={`text-center text-sm mt-1 ${
@@ -195,16 +184,13 @@ const Contact = () => {
                 </p>
               )}
 
-
             </form>
           </div>
-
 
         </div>
       </div>
     </div>
   );
 };
-
 
 export default Contact;

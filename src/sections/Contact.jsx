@@ -3,7 +3,6 @@ import { Mail, MapPin } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
-
 const Contact = () => {
   const [result, setResult] = useState("");
 
@@ -31,10 +30,6 @@ const Contact = () => {
     { label: "Instagram", icon: faInstagram, href: "https://www.instagram.com/adhikari__neeshan/" },
   ];
 
-  // transition-colors only (not transition-all) — prevents GPU compositing glitch on mobile WebKit
-  const cardBase =
-    "bg-white/5 border border-white/10 rounded-3xl hover:border-[#AC58F5]/40 transition-colors duration-300";
-
   return (
     <div className="bg-black text-white px-6 py-24">
       <div className="max-w-6xl mx-auto">
@@ -61,14 +56,21 @@ const Contact = () => {
           {/* Left — Info */}
           <div className="flex flex-col gap-6 min-w-0">
 
-            <div className={`${cardBase} p-8`}>
+            {/* Card: solid bg instead of bg-white/5, isolate stacking context */}
+            <div
+              style={{ backgroundColor: "#141414", isolation: "isolate" }}
+              className="border border-white/10 rounded-3xl p-8 hover:border-[#AC58F5]/40 transition-colors duration-300"
+            >
               <p className="text-white/70 leading-relaxed">
                 I'm always open to discussing new projects, creative ideas, or
                 opportunities to be part of your vision. Feel free to reach out!
               </p>
             </div>
 
-            <div className={`${cardBase} p-6 flex items-center gap-5 min-w-0`}>
+            <div
+              style={{ backgroundColor: "#141414", isolation: "isolate" }}
+              className="border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-colors duration-300 flex items-center gap-5 min-w-0"
+            >
               <div className="w-12 h-12 rounded-2xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
                 <Mail size={20} className="text-[#AC58F5]" />
               </div>
@@ -85,7 +87,10 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className={`${cardBase} p-6 flex items-center gap-5 min-w-0`}>
+            <div
+              style={{ backgroundColor: "#141414", isolation: "isolate" }}
+              className="border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-colors duration-300 flex items-center gap-5 min-w-0"
+            >
               <div className="w-12 h-12 rounded-2xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
                 <MapPin size={20} className="text-[#AC58F5]" />
               </div>
@@ -96,7 +101,10 @@ const Contact = () => {
             </div>
 
             {/* Social Links */}
-            <div className={`${cardBase} p-6`}>
+            <div
+              style={{ backgroundColor: "#141414", isolation: "isolate" }}
+              className="border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-colors duration-300"
+            >
               <p className="text-white/50 text-xs uppercase tracking-widest mb-4">Social Links</p>
               <div className="flex gap-3 flex-wrap">
                 {socials.map((s) => (
@@ -105,9 +113,10 @@ const Contact = () => {
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10
                                text-white/70 text-sm hover:border-[#AC58F5]/50 hover:text-[#AC58F5]
                                transition-colors duration-300"
+                    style={{ backgroundColor: "#1a1a1a" }}
                   >
                     <FontAwesomeIcon icon={s.icon} />
                     {s.label}
@@ -119,7 +128,10 @@ const Contact = () => {
           </div>
 
           {/* Right — Form */}
-          <div className={`${cardBase} p-8`}>
+          <div
+            style={{ backgroundColor: "#141414", isolation: "isolate" }}
+            className="border border-white/10 rounded-3xl p-8 hover:border-[#AC58F5]/40 transition-colors duration-300"
+          >
             <h2 className="text-2xl font-semibold mb-8">Send a Message</h2>
 
             <form onSubmit={onSubmit} className="flex flex-col gap-5">
@@ -131,9 +143,10 @@ const Contact = () => {
                   name="name"
                   required
                   placeholder="Your name"
-                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
+                  className="border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
                              placeholder:text-white/30 focus:outline-none focus:border-[#AC58F5]/60
                              hover:border-white/20 transition-colors duration-300"
+                  style={{ backgroundColor: "#1a1a1a" }}
                 />
               </div>
 
@@ -144,9 +157,10 @@ const Contact = () => {
                   name="email"
                   required
                   placeholder="your.email@example.com"
-                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
+                  className="border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
                              placeholder:text-white/30 focus:outline-none focus:border-[#AC58F5]/60
                              hover:border-white/20 transition-colors duration-300"
+                  style={{ backgroundColor: "#1a1a1a" }}
                 />
               </div>
 
@@ -157,9 +171,10 @@ const Contact = () => {
                   required
                   placeholder="Your message..."
                   rows={5}
-                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
+                  className="border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
                              placeholder:text-white/30 focus:outline-none focus:border-[#AC58F5]/60
                              hover:border-white/20 transition-colors duration-300 resize-none"
+                  style={{ backgroundColor: "#1a1a1a" }}
                 />
               </div>
 

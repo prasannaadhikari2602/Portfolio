@@ -32,15 +32,14 @@ const Contact = () => {
   ];
 
   const inputClass = (name) => `
-    w-full bg-transparent border-0 border-b py-3 text-[#1a1a1a] text-sm outline-none
-    placeholder:text-[#999] transition-colors duration-300
-    ${focused === name ? "border-[#AC58F5]" : "border-[#d0d0d0]"}
+    w-full bg-transparent border-0 border-b py-3 text-white text-sm outline-none
+    placeholder:text-[#555] transition-colors duration-300
+    ${focused === name ? "border-[#AC58F5]" : "border-[#2a2a2a]"}
   `;
 
   return (
-    <div style={{ backgroundColor: "#f7f6f3", fontFamily: "'DM Sans', sans-serif" }} className="text-[#1a1a1a] px-6 py-24 min-h-screen">
+    <div style={{ backgroundColor: "#0a0a0a", fontFamily: "'DM Sans', sans-serif" }} className="text-white px-6 py-24 min-h-screen">
 
-      {/* Google Font */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap');
         * { box-sizing: border-box; }
@@ -54,14 +53,14 @@ const Contact = () => {
           <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", letterSpacing: "0.15em" }} className="text-[#AC58F5] uppercase mb-4">
             — Contact
           </p>
-          <h1 style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 300, lineHeight: 1.1 }} className="text-5xl md:text-7xl text-[#1a1a1a]">
+          <h1 style={{ fontWeight: 300, lineHeight: 1.1 }} className="text-5xl md:text-7xl text-white">
             Let's work<br />
             <em style={{ fontStyle: "italic", fontWeight: 300 }}>together.</em>
           </h1>
         </div>
 
         {/* Thin rule */}
-        <div style={{ height: "1px", backgroundColor: "#d0d0d0" }} className="mb-16" />
+        <div style={{ height: "1px", backgroundColor: "#2a2a2a" }} className="mb-16" />
 
         {/* Main Grid */}
         <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -69,7 +68,7 @@ const Contact = () => {
           {/* Left — Info */}
           <div className="flex flex-col">
 
-            <p style={{ fontWeight: 300, lineHeight: 1.8 }} className="text-[#555] text-base mb-14">
+            <p style={{ fontWeight: 300, lineHeight: 1.8 }} className="text-[#777] text-base mb-14">
               I'm always open to discussing new projects, creative ideas, or
               opportunities to be part of your vision. Feel free to reach out.
             </p>
@@ -77,36 +76,35 @@ const Contact = () => {
             {/* Info rows */}
             <div className="flex flex-col">
 
-              {/* Email row */}
-              <div className="flex items-start justify-between py-5" style={{ borderBottom: "1px solid #e0e0e0" }}>
-                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#999] uppercase pt-0.5">
+              <div className="flex items-start justify-between py-5" style={{ borderBottom: "1px solid #1e1e1e" }}>
+                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#555] uppercase pt-0.5">
                   Email
                 </p>
                 <a
                   href="mailto:prasannaadhikari2602@gmail.com"
-                  className="text-sm text-[#1a1a1a] hover:text-[#AC58F5] transition-colors duration-200 flex items-center gap-1 group"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm text-[#ccc] hover:text-[#AC58F5] transition-colors duration-200 flex items-center gap-1 group"
                 >
                   <span className="break-all text-right">prasannaadhikari2602@gmail.com</span>
                   <ArrowUpRight size={13} className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </a>
               </div>
 
-              {/* Location row */}
-              <div className="flex items-center justify-between py-5" style={{ borderBottom: "1px solid #e0e0e0" }}>
-                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#999] uppercase">
+              <div className="flex items-center justify-between py-5" style={{ borderBottom: "1px solid #1e1e1e" }}>
+                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#555] uppercase">
                   Location
                 </p>
-                <p className="text-sm text-[#1a1a1a]">Kathmandu, Nepal</p>
+                <p className="text-sm text-[#ccc]">Kathmandu, Nepal</p>
               </div>
 
-              {/* Availability row */}
-              <div className="flex items-center justify-between py-5" style={{ borderBottom: "1px solid #e0e0e0" }}>
-                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#999] uppercase">
+              <div className="flex items-center justify-between py-5" style={{ borderBottom: "1px solid #1e1e1e" }}>
+                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#555] uppercase">
                   Status
                 </p>
                 <div className="flex items-center gap-2">
                   <span style={{ width: 7, height: 7, borderRadius: "50%", backgroundColor: "#22c55e", display: "inline-block" }} />
-                  <p className="text-sm text-[#1a1a1a]">Available for work</p>
+                  <p className="text-sm text-[#ccc]">Available for work</p>
                 </div>
               </div>
 
@@ -114,17 +112,17 @@ const Contact = () => {
 
             {/* Socials */}
             <div className="mt-10 flex flex-col gap-3">
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#999] uppercase mb-1">
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#555] uppercase mb-1">
                 Socials
               </p>
-              <div className="flex gap-4">
+              <div className="flex gap-6">
                 {socials.map((s) => (
                   <a
                     key={s.label}
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 text-sm text-[#555] hover:text-[#AC58F5] transition-colors duration-200 group"
+                    className="flex items-center gap-2 text-sm text-[#777] hover:text-[#AC58F5] transition-colors duration-200 group"
                   >
                     <FontAwesomeIcon icon={s.icon} className="text-base" />
                     <span className="hidden sm:inline">{s.label}</span>
@@ -138,14 +136,14 @@ const Contact = () => {
 
           {/* Right — Form */}
           <div>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#999] uppercase mb-8">
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#555] uppercase mb-8">
               Send a message
             </p>
 
             <form onSubmit={onSubmit} className="flex flex-col gap-8">
 
               <div>
-                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="block text-[#999] uppercase mb-1">
+                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="block text-[#555] uppercase mb-1">
                   Name
                 </label>
                 <input
@@ -160,7 +158,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="block text-[#999] uppercase mb-1">
+                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="block text-[#555] uppercase mb-1">
                   Email
                 </label>
                 <input
@@ -175,7 +173,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="block text-[#999] uppercase mb-1">
+                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="block text-[#555] uppercase mb-1">
                   Message
                 </label>
                 <textarea
@@ -193,7 +191,7 @@ const Contact = () => {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="group flex items-center gap-3 text-sm font-medium text-[#1a1a1a] hover:text-[#AC58F5] transition-colors duration-200"
+                  className="group flex items-center gap-3 text-sm font-medium text-white hover:text-[#AC58F5] transition-colors duration-200"
                 >
                   <span
                     style={{ backgroundColor: "#AC58F5" }}
@@ -205,12 +203,12 @@ const Contact = () => {
                 </button>
 
                 {result === "sending" && (
-                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px" }} className="text-[#999] mt-4">
+                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px" }} className="text-[#555] mt-4">
                     Sending…
                   </p>
                 )}
                 {result === "success" && (
-                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px" }} className="text-green-600 mt-4">
+                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px" }} className="text-green-500 mt-4">
                     ✓ Message sent successfully.
                   </p>
                 )}
@@ -226,9 +224,9 @@ const Contact = () => {
 
         </div>
 
-        {/* Bottom rule + footer note */}
-        <div style={{ height: "1px", backgroundColor: "#d0d0d0" }} className="mt-24 mb-6" />
-        <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.1em" }} className="text-[#bbb] uppercase">
+        {/* Bottom rule */}
+        <div style={{ height: "1px", backgroundColor: "#1e1e1e" }} className="mt-24 mb-6" />
+        <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.1em" }} className="text-[#333] uppercase">
           Prasanna Adhikari — Portfolio
         </p>
 

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, ArrowUpRight } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const Contact = () => {
   const [result, setResult] = useState("");
+  const [focused, setFocused] = useState(null);
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    setResult("Sending...");
+    setResult("sending");
     const formData = new FormData(event.target);
     formData.append("access_key", "8a7d35fa-4e91-49a7-905e-692c8562d1fd");
     const response = await fetch("https://api.web3forms.com/submit", {
@@ -17,10 +18,10 @@ const Contact = () => {
     });
     const data = await response.json();
     if (data.success) {
-      setResult("Message sent successfully!");
+      setResult("success");
       event.target.reset();
     } else {
-      setResult("Something went wrong. Please try again.");
+      setResult("error");
     }
   };
 
@@ -30,96 +31,104 @@ const Contact = () => {
     { label: "Instagram", icon: faInstagram, href: "https://www.instagram.com/adhikari__neeshan/" },
   ];
 
+  const inputClass = (name) => `
+    w-full bg-transparent border-0 border-b py-3 text-[#1a1a1a] text-sm outline-none
+    placeholder:text-[#999] transition-colors duration-300
+    ${focused === name ? "border-[#AC58F5]" : "border-[#d0d0d0]"}
+  `;
+
   return (
-    <div className="bg-black text-white px-6 py-24">
-      <div className="max-w-6xl mx-auto">
+    <div style={{ backgroundColor: "#f7f6f3", fontFamily: "'DM Sans', sans-serif" }} className="text-[#1a1a1a] px-6 py-24 min-h-screen">
+
+      {/* Google Font */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap');
+        * { box-sizing: border-box; }
+        ::selection { background: #AC58F5; color: #fff; }
+      `}</style>
+
+      <div className="max-w-5xl mx-auto">
 
         {/* Heading */}
-        <div className="text-center mb-16">
-          <h3 className="text-sm tracking-[0.3em] uppercase text-[#AC58F5]">
-            Contact
-          </h3>
-          <h1 className="text-4xl md:text-6xl font-bold mt-4">
-            Get In{" "}
-            <span className="bg-linear-to-r from-[#AC58F5] to-purple-400 bg-clip-text text-transparent">
-              Touch
-            </span>
-          </h1>
-          <p className="text-white/60 mt-5 max-w-xl mx-auto">
-            Let's connect and discuss opportunities.
+        <div className="mb-20">
+          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", letterSpacing: "0.15em" }} className="text-[#AC58F5] uppercase mb-4">
+            — Contact
           </p>
+          <h1 style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 300, lineHeight: 1.1 }} className="text-5xl md:text-7xl text-[#1a1a1a]">
+            Let's work<br />
+            <em style={{ fontStyle: "italic", fontWeight: 300 }}>together.</em>
+          </h1>
         </div>
 
+        {/* Thin rule */}
+        <div style={{ height: "1px", backgroundColor: "#d0d0d0" }} className="mb-16" />
+
         {/* Main Grid */}
-        <div className="grid lg:grid-cols-2 gap-10 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
 
           {/* Left — Info */}
-          <div className="flex flex-col gap-6 min-w-0">
+          <div className="flex flex-col">
 
-            {/* Card: solid bg instead of bg-white/5, isolate stacking context */}
-            <div
-              style={{ backgroundColor: "#141414", isolation: "isolate" }}
-              className="border border-white/10 rounded-3xl p-8 hover:border-[#AC58F5]/40 transition-colors duration-300"
-            >
-              <p className="text-white/70 leading-relaxed">
-                I'm always open to discussing new projects, creative ideas, or
-                opportunities to be part of your vision. Feel free to reach out!
-              </p>
-            </div>
+            <p style={{ fontWeight: 300, lineHeight: 1.8 }} className="text-[#555] text-base mb-14">
+              I'm always open to discussing new projects, creative ideas, or
+              opportunities to be part of your vision. Feel free to reach out.
+            </p>
 
-            <div
-              style={{ backgroundColor: "#141414", isolation: "isolate" }}
-              className="border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-colors duration-300 flex items-center gap-5 min-w-0"
-            >
-              <div className="w-12 h-12 rounded-2xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
-                <Mail size={20} className="text-[#AC58F5]" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="text-white/50 text-xs uppercase tracking-widest mb-1">Email</p>
+            {/* Info rows */}
+            <div className="flex flex-col">
+
+              {/* Email row */}
+              <div className="flex items-start justify-between py-5" style={{ borderBottom: "1px solid #e0e0e0" }}>
+                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#999] uppercase pt-0.5">
+                  Email
+                </p>
                 <a
                   href="mailto:prasannaadhikari2602@gmail.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-white/90 hover:text-[#AC58F5] transition-colors duration-300 text-sm font-medium break-all"
+                  className="text-sm text-[#1a1a1a] hover:text-[#AC58F5] transition-colors duration-200 flex items-center gap-1 group"
                 >
-                  prasannaadhikari2602@gmail.com
+                  <span className="break-all text-right">prasannaadhikari2602@gmail.com</span>
+                  <ArrowUpRight size={13} className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </a>
               </div>
+
+              {/* Location row */}
+              <div className="flex items-center justify-between py-5" style={{ borderBottom: "1px solid #e0e0e0" }}>
+                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#999] uppercase">
+                  Location
+                </p>
+                <p className="text-sm text-[#1a1a1a]">Kathmandu, Nepal</p>
+              </div>
+
+              {/* Availability row */}
+              <div className="flex items-center justify-between py-5" style={{ borderBottom: "1px solid #e0e0e0" }}>
+                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#999] uppercase">
+                  Status
+                </p>
+                <div className="flex items-center gap-2">
+                  <span style={{ width: 7, height: 7, borderRadius: "50%", backgroundColor: "#22c55e", display: "inline-block" }} />
+                  <p className="text-sm text-[#1a1a1a]">Available for work</p>
+                </div>
+              </div>
+
             </div>
 
-            <div
-              style={{ backgroundColor: "#141414", isolation: "isolate" }}
-              className="border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-colors duration-300 flex items-center gap-5 min-w-0"
-            >
-              <div className="w-12 h-12 rounded-2xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
-                <MapPin size={20} className="text-[#AC58F5]" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="text-white/50 text-xs uppercase tracking-widest mb-1">Location</p>
-                <p className="text-white/90 text-sm font-medium">Kathmandu, Nepal</p>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div
-              style={{ backgroundColor: "#141414", isolation: "isolate" }}
-              className="border border-white/10 rounded-3xl p-6 hover:border-[#AC58F5]/40 transition-colors duration-300"
-            >
-              <p className="text-white/50 text-xs uppercase tracking-widest mb-4">Social Links</p>
-              <div className="flex gap-3 flex-wrap">
+            {/* Socials */}
+            <div className="mt-10 flex flex-col gap-3">
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#999] uppercase mb-1">
+                Socials
+              </p>
+              <div className="flex gap-4">
                 {socials.map((s) => (
                   <a
                     key={s.label}
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10
-                               text-white/70 text-sm hover:border-[#AC58F5]/50 hover:text-[#AC58F5]
-                               transition-colors duration-300"
-                    style={{ backgroundColor: "#1a1a1a" }}
+                    className="flex items-center gap-2 text-sm text-[#555] hover:text-[#AC58F5] transition-colors duration-200 group"
                   >
-                    <FontAwesomeIcon icon={s.icon} />
-                    {s.label}
+                    <FontAwesomeIcon icon={s.icon} className="text-base" />
+                    <span className="hidden sm:inline">{s.label}</span>
+                    <ArrowUpRight size={11} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                   </a>
                 ))}
               </div>
@@ -128,81 +137,101 @@ const Contact = () => {
           </div>
 
           {/* Right — Form */}
-          <div
-            style={{ backgroundColor: "#141414", isolation: "isolate" }}
-            className="border border-white/10 rounded-3xl p-8 hover:border-[#AC58F5]/40 transition-colors duration-300"
-          >
-            <h2 className="text-2xl font-semibold mb-8">Send a Message</h2>
+          <div>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#999] uppercase mb-8">
+              Send a message
+            </p>
 
-            <form onSubmit={onSubmit} className="flex flex-col gap-5">
+            <form onSubmit={onSubmit} className="flex flex-col gap-8">
 
-              <div className="flex flex-col gap-2">
-                <label className="text-white/50 text-xs uppercase tracking-widest">Name</label>
+              <div>
+                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="block text-[#999] uppercase mb-1">
+                  Name
+                </label>
                 <input
                   type="text"
                   name="name"
                   required
-                  placeholder="Your name"
-                  className="border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
-                             placeholder:text-white/30 focus:outline-none focus:border-[#AC58F5]/60
-                             hover:border-white/20 transition-colors duration-300"
-                  style={{ backgroundColor: "#1a1a1a" }}
+                  placeholder="Your full name"
+                  onFocus={() => setFocused("name")}
+                  onBlur={() => setFocused(null)}
+                  className={inputClass("name")}
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
-                <label className="text-white/50 text-xs uppercase tracking-widest">Email</label>
+              <div>
+                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="block text-[#999] uppercase mb-1">
+                  Email
+                </label>
                 <input
                   type="email"
                   name="email"
                   required
-                  placeholder="your.email@example.com"
-                  className="border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
-                             placeholder:text-white/30 focus:outline-none focus:border-[#AC58F5]/60
-                             hover:border-white/20 transition-colors duration-300"
-                  style={{ backgroundColor: "#1a1a1a" }}
+                  placeholder="your@email.com"
+                  onFocus={() => setFocused("email")}
+                  onBlur={() => setFocused(null)}
+                  className={inputClass("email")}
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
-                <label className="text-white/50 text-xs uppercase tracking-widest">Message</label>
+              <div>
+                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="block text-[#999] uppercase mb-1">
+                  Message
+                </label>
                 <textarea
                   name="message"
                   required
-                  placeholder="Your message..."
+                  placeholder="Tell me about your project..."
                   rows={5}
-                  className="border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
-                             placeholder:text-white/30 focus:outline-none focus:border-[#AC58F5]/60
-                             hover:border-white/20 transition-colors duration-300 resize-none"
-                  style={{ backgroundColor: "#1a1a1a" }}
+                  onFocus={() => setFocused("message")}
+                  onBlur={() => setFocused(null)}
+                  className={inputClass("message")}
+                  style={{ resize: "none" }}
                 />
               </div>
 
-              <button
-                type="submit"
-                className="mt-2 w-full py-3 rounded-xl bg-[#AC58F5] hover:bg-[#9b45e8]
-                           text-white font-semibold text-sm transition-colors duration-300
-                           hover:shadow-lg hover:shadow-[#AC58F5]/20 active:scale-[0.98]"
-              >
-                Send Message
-              </button>
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  className="group flex items-center gap-3 text-sm font-medium text-[#1a1a1a] hover:text-[#AC58F5] transition-colors duration-200"
+                >
+                  <span
+                    style={{ backgroundColor: "#AC58F5" }}
+                    className="w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200"
+                  >
+                    <ArrowUpRight size={16} color="#fff" />
+                  </span>
+                  Send Message
+                </button>
 
-              {result && (
-                <p className={`text-center text-sm mt-1 ${
-                  result.includes("successfully")
-                    ? "text-green-400"
-                    : result === "Sending..."
-                    ? "text-white/50"
-                    : "text-red-400"
-                }`}>
-                  {result}
-                </p>
-              )}
+                {result === "sending" && (
+                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px" }} className="text-[#999] mt-4">
+                    Sending…
+                  </p>
+                )}
+                {result === "success" && (
+                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px" }} className="text-green-600 mt-4">
+                    ✓ Message sent successfully.
+                  </p>
+                )}
+                {result === "error" && (
+                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px" }} className="text-red-500 mt-4">
+                    Something went wrong. Please try again.
+                  </p>
+                )}
+              </div>
 
             </form>
           </div>
 
         </div>
+
+        {/* Bottom rule + footer note */}
+        <div style={{ height: "1px", backgroundColor: "#d0d0d0" }} className="mt-24 mb-6" />
+        <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.1em" }} className="text-[#bbb] uppercase">
+          Prasanna Adhikari — Portfolio
+        </p>
+
       </div>
     </div>
   );

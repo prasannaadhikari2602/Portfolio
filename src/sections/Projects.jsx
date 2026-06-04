@@ -8,7 +8,7 @@ const projects = [
     title: "Recipe App",
     description:
       "A full-featured recipe management app built with Python and Django. Supports full CRUD operations — create, read, update, and delete recipes with a clean and intuitive interface.",
-    tags: ["Python", "Django", "SQLlite", "CRUD"],
+    tags: ["Python", "Django", "SQLite", "CRUD"],
     github: "https://github.com/prasannaadhikari2602/Recipe_App",
     live: "#",
   },

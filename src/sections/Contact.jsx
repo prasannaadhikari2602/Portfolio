@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
+
 const Contact = () => {
   const [result, setResult] = useState("");
+
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -25,15 +27,18 @@ const Contact = () => {
     }
   };
 
+
   const socials = [
     { label: "GitHub",    icon: faGithub,    href: "https://github.com/prasannaadhikari2602" },
     { label: "LinkedIn",  icon: faLinkedin,  href: "https://www.linkedin.com/in/prasanna-adhikari-52977a409/" },
     { label: "Instagram", icon: faInstagram, href: "https://www.instagram.com/adhikari__neeshan/" },
   ];
 
+
   return (
     <div className="bg-black text-white px-6 py-24">
       <div className="max-w-6xl mx-auto">
+
 
         {/* Top Heading Row */}
         <div className="grid lg:grid-cols-2 gap-10 mb-16 items-end">
@@ -59,11 +64,14 @@ const Contact = () => {
           </div>
         </div>
 
+
         {/* Main Grid */}
         <div className="grid lg:grid-cols-2 gap-6 items-start">
 
+
           {/* Left — Info Cards */}
           <div className="flex flex-col gap-4">
+
 
             {/* Email */}
             <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-5 hover:border-[#AC58F5]/40 transition-all duration-300">
@@ -81,6 +89,7 @@ const Contact = () => {
               </div>
             </div>
 
+
             {/* Location */}
             <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-5 hover:border-[#AC58F5]/40 transition-all duration-300">
               <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Location</p>
@@ -91,6 +100,7 @@ const Contact = () => {
                 <span className="text-white/80 text-sm">Kathmandu, Nepal</span>
               </div>
             </div>
+
 
             {/* Socials */}
             <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-5 hover:border-[#AC58F5]/40 transition-all duration-300">
@@ -113,13 +123,17 @@ const Contact = () => {
               </div>
             </div>
 
+
           </div>
+
 
           {/* Right — Form */}
           <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#AC58F5]/40 transition-all duration-300">
             <h2 className="text-2xl font-semibold mb-8">Send a message</h2>
 
+
             <form onSubmit={onSubmit} className="flex flex-col gap-5">
+
 
               {/* Name + Email row */}
               <div className="grid sm:grid-cols-2 gap-4">
@@ -149,6 +163,7 @@ const Contact = () => {
                 </div>
               </div>
 
+
               {/* Subject */}
               <div className="flex flex-col gap-2">
                 <label className="text-white/40 text-xs uppercase tracking-widest">Subject</label>
@@ -161,6 +176,7 @@ const Contact = () => {
                              hover:border-white/20 transition-all duration-300"
                 />
               </div>
+
 
               {/* Message */}
               <div className="flex flex-col gap-2">
@@ -176,6 +192,7 @@ const Contact = () => {
                 />
               </div>
 
+
               {/* Submit */}
               <button
                 type="submit"
@@ -186,6 +203,7 @@ const Contact = () => {
                 Send message
                 <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="xs" />
               </button>
+
 
               {result && (
                 <p className={`text-sm ${
@@ -199,13 +217,16 @@ const Contact = () => {
                 </p>
               )}
 
+
             </form>
           </div>
+
 
         </div>
       </div>
     </div>
   );
 };
+
 
 export default Contact;

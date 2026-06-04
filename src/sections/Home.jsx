@@ -1,10 +1,15 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-
 import { faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Profile from "../assets/Profile.png";
+import CV from "../assets/CV.pdf";
+
 const Home = () => {
+  const scrollToProjects = () => {
+    const section = document.getElementById("projects");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="flex flex-col justify-center items-center text-center px-6 bg-black text-white">
       {/* Badge */}
@@ -36,20 +41,28 @@ const Home = () => {
 
       {/* Buttons */}
       <div className="mt-8 flex flex-wrap justify-center items-center sm:flex-row gap-4">
-        <button className="px-6 py-3 rounded-xl bg-[#AC58F5] hover:bg-[#8a3de0] transition-all duration-300 shadow-lg shadow-[#AC58F5]/30">
+        <button
+          onClick={scrollToProjects}
+          className="px-6 py-3 rounded-xl bg-[#AC58F5] hover:bg-[#8a3de0] transition-all duration-300 shadow-lg shadow-[#AC58F5]/30"
+        >
           View Projects
         </button>
 
-        <button className="px-6 py-3 rounded-xl border border-white/20 hover:bg-white/10 transition-all duration-300">
+        <a
+          href={CV}
+          download="Prasanna_Adhikari_CV.pdf"
+          className="px-6 py-3 rounded-xl border border-white/20 hover:bg-white/10 transition-all duration-300"
+        >
           Download CV
-        </button>
+        </a>
       </div>
 
       {/* Social Icons */}
       <div className="mt-8 flex gap-6 text-xl text-white/70">
         <a
           href="https://github.com/prasannaadhikari2602"
-          target="blank"
+          target="_blank"
+          rel="noreferrer"
           className="hover:text-[#AC58F5] transition duration-300 ease-in-out text-4xl"
         >
           <FontAwesomeIcon icon={faGithub} />
@@ -57,14 +70,17 @@ const Home = () => {
 
         <a
           href="https://www.linkedin.com/in/prasanna-adhikari-52977a409/"
-          target="blank"
+          target="_blank"
+          rel="noreferrer"
           className="hover:text-[#AC58F5] transition duration-300 ease-in-out text-4xl"
         >
           <FontAwesomeIcon icon={faLinkedin} />
         </a>
 
         <a
-          href="https://www.instagram.com/adhikari__neeshan/" target="blank"
+          href="https://www.instagram.com/adhikari__neeshan/"
+          target="_blank"
+          rel="noreferrer"
           className="hover:text-[#AC58F5] transition duration-300 ease-in-out text-4xl"
         >
           <FontAwesomeIcon icon={faInstagram} />

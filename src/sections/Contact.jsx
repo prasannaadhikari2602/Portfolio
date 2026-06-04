@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faArrowUpRight } from "@fortawesome/free-solid-svg-icons";
 
 const Contact = () => {
   const [result, setResult] = useState("");
-  const [focused, setFocused] = useState(null);
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    setResult("sending");
+    setResult("Sending...");
     const formData = new FormData(event.target);
     formData.append("access_key", "8a7d35fa-4e91-49a7-905e-692c8562d1fd");
     const response = await fetch("https://api.web3forms.com/submit", {
@@ -18,10 +18,10 @@ const Contact = () => {
     });
     const data = await response.json();
     if (data.success) {
-      setResult("success");
+      setResult("Message sent successfully!");
       event.target.reset();
     } else {
-      setResult("error");
+      setResult("Something went wrong. Please try again.");
     }
   };
 
@@ -31,102 +31,92 @@ const Contact = () => {
     { label: "Instagram", icon: faInstagram, href: "https://www.instagram.com/adhikari__neeshan/" },
   ];
 
-  const inputClass = (name) => `
-    w-full bg-transparent border-0 border-b py-3 text-white text-sm outline-none
-    placeholder:text-[#555] transition-colors duration-300
-    ${focused === name ? "border-[#AC58F5]" : "border-[#2a2a2a]"}
-  `;
-
   return (
-    <div style={{ backgroundColor: "#0a0a0a", fontFamily: "'DM Sans', sans-serif" }} className="text-white px-6 py-24 min-h-screen">
+    <div className="bg-black text-white px-6 py-24">
+      <div className="max-w-6xl mx-auto">
 
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap');
-        * { box-sizing: border-box; }
-        ::selection { background: #AC58F5; color: #fff; }
-      `}</style>
-
-      <div className="max-w-5xl mx-auto">
-
-        {/* Heading */}
-        <div className="mb-20">
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", letterSpacing: "0.15em" }} className="text-[#AC58F5] uppercase mb-4">
-            — Contact
-          </p>
-          <h1 style={{ fontWeight: 300, lineHeight: 1.1 }} className="text-5xl md:text-7xl text-white">
-            Let's work<br />
-            <em style={{ fontStyle: "italic", fontWeight: 300 }}>together.</em>
-          </h1>
+        {/* Top Heading Row */}
+        <div className="grid lg:grid-cols-2 gap-10 mb-16 items-end">
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-px bg-[#AC58F5]" />
+              <span className="text-xs tracking-[0.3em] uppercase text-[#AC58F5]">Contact</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              Let's work<br />
+              <span className="text-transparent" style={{
+                WebkitTextStroke: "2px #AC58F5",
+                fontStyle: "italic",
+              }}>
+                together.
+              </span>
+            </h1>
+          </div>
+          <div className="lg:text-right">
+            <p className="text-white/50 text-lg leading-relaxed max-w-sm lg:ml-auto">
+              Open to new projects, creative ideas, and opportunities. Don't hesitate to reach out.
+            </p>
+          </div>
         </div>
 
-        {/* Thin rule */}
-        <div style={{ height: "1px", backgroundColor: "#2a2a2a" }} className="mb-16" />
-
         {/* Main Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-6 items-start">
 
-          {/* Left — Info */}
-          <div className="flex flex-col">
+          {/* Left — Info Cards */}
+          <div className="flex flex-col gap-4">
 
-            <p style={{ fontWeight: 300, lineHeight: 1.8 }} className="text-[#777] text-base mb-14">
-              I'm always open to discussing new projects, creative ideas, or
-              opportunities to be part of your vision. Feel free to reach out.
-            </p>
+            {/* Status */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-5 hover:border-[#AC58F5]/40 transition-all duration-300">
+              <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Status</p>
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_6px_#4ade80]" />
+                <span className="text-white/80 text-sm">Available for freelance work</span>
+              </div>
+            </div>
 
-            {/* Info rows */}
-            <div className="flex flex-col">
-
-              <div className="flex items-start justify-between py-5" style={{ borderBottom: "1px solid #1e1e1e" }}>
-                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#555] uppercase pt-0.5">
-                  Email
-                </p>
+            {/* Email */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-5 hover:border-[#AC58F5]/40 transition-all duration-300">
+              <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Email</p>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
+                  <Mail size={16} className="text-[#AC58F5]" />
+                </div>
                 <a
                   href="mailto:prasannaadhikari2602@gmail.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-sm text-[#ccc] hover:text-[#AC58F5] transition-colors duration-200 flex items-center gap-1 group"
+                  className="text-white/80 hover:text-[#AC58F5] transition text-sm break-all"
                 >
-                  <span className="break-all text-right">prasannaadhikari2602@gmail.com</span>
-                  <ArrowUpRight size={13} className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  prasannaadhikari2602@gmail.com
                 </a>
               </div>
+            </div>
 
-              <div className="flex items-center justify-between py-5" style={{ borderBottom: "1px solid #1e1e1e" }}>
-                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#555] uppercase">
-                  Location
-                </p>
-                <p className="text-sm text-[#ccc]">Kathmandu, Nepal</p>
-              </div>
-
-              <div className="flex items-center justify-between py-5" style={{ borderBottom: "1px solid #1e1e1e" }}>
-                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#555] uppercase">
-                  Status
-                </p>
-                <div className="flex items-center gap-2">
-                  <span style={{ width: 7, height: 7, borderRadius: "50%", backgroundColor: "#22c55e", display: "inline-block" }} />
-                  <p className="text-sm text-[#ccc]">Available for work</p>
+            {/* Location */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-5 hover:border-[#AC58F5]/40 transition-all duration-300">
+              <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Location</p>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-[#AC58F5]/20 flex items-center justify-center shrink-0">
+                  <MapPin size={16} className="text-[#AC58F5]" />
                 </div>
+                <span className="text-white/80 text-sm">Kathmandu, Nepal</span>
               </div>
-
             </div>
 
             {/* Socials */}
-            <div className="mt-10 flex flex-col gap-3">
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#555] uppercase mb-1">
-                Socials
-              </p>
-              <div className="flex gap-6">
+            <div className="bg-white/5 border border-white/10 rounded-2xl px-6 py-5 hover:border-[#AC58F5]/40 transition-all duration-300">
+              <p className="text-white/40 text-xs uppercase tracking-widest mb-4">Socials</p>
+              <div className="flex flex-wrap gap-3">
                 {socials.map((s) => (
                   <a
                     key={s.label}
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 text-sm text-[#777] hover:text-[#AC58F5] transition-colors duration-200 group"
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10
+                               text-white/70 text-sm hover:border-[#AC58F5]/50 hover:text-[#AC58F5]
+                               transition-all duration-300"
                   >
-                    <FontAwesomeIcon icon={s.icon} className="text-base" />
-                    <span className="hidden sm:inline">{s.label}</span>
-                    <ArrowUpRight size={11} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                    <FontAwesomeIcon icon={s.icon} />
+                    {s.label}
                   </a>
                 ))}
               </div>
@@ -135,104 +125,97 @@ const Contact = () => {
           </div>
 
           {/* Right — Form */}
-          <div>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="text-[#555] uppercase mb-8">
-              Send a message
-            </p>
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#AC58F5]/40 transition-all duration-300">
+            <h2 className="text-2xl font-semibold mb-8">Send a message</h2>
 
-            <form onSubmit={onSubmit} className="flex flex-col gap-8">
+            <form onSubmit={onSubmit} className="flex flex-col gap-5">
 
-              <div>
-                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="block text-[#555] uppercase mb-1">
-                  Name
-                </label>
+              {/* Name + Email row */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-2">
+                  <label className="text-white/40 text-xs uppercase tracking-widest">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Your name"
+                    className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
+                               placeholder:text-white/30 focus:outline-none focus:border-[#AC58F5]/60
+                               hover:border-white/20 transition-all duration-300"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="text-white/40 text-xs uppercase tracking-widest">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="you@example.com"
+                    className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
+                               placeholder:text-white/30 focus:outline-none focus:border-[#AC58F5]/60
+                               hover:border-white/20 transition-all duration-300"
+                  />
+                </div>
+              </div>
+
+              {/* Subject */}
+              <div className="flex flex-col gap-2">
+                <label className="text-white/40 text-xs uppercase tracking-widest">Subject</label>
                 <input
                   type="text"
-                  name="name"
-                  required
-                  placeholder="Your full name"
-                  onFocus={() => setFocused("name")}
-                  onBlur={() => setFocused(null)}
-                  className={inputClass("name")}
+                  name="subject"
+                  placeholder="What's this about?"
+                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
+                             placeholder:text-white/30 focus:outline-none focus:border-[#AC58F5]/60
+                             hover:border-white/20 transition-all duration-300"
                 />
               </div>
 
-              <div>
-                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="block text-[#555] uppercase mb-1">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="your@email.com"
-                  onFocus={() => setFocused("email")}
-                  onBlur={() => setFocused(null)}
-                  className={inputClass("email")}
-                />
-              </div>
-
-              <div>
-                <label style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.12em" }} className="block text-[#555] uppercase mb-1">
-                  Message
-                </label>
+              {/* Message */}
+              <div className="flex flex-col gap-2">
+                <label className="text-white/40 text-xs uppercase tracking-widest">Message</label>
                 <textarea
                   name="message"
                   required
                   placeholder="Tell me about your project..."
                   rows={5}
-                  onFocus={() => setFocused("message")}
-                  onBlur={() => setFocused(null)}
-                  className={inputClass("message")}
-                  style={{ resize: "none" }}
+                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white/90 text-sm
+                             placeholder:text-white/30 focus:outline-none focus:border-[#AC58F5]/60
+                             hover:border-white/20 transition-all duration-300 resize-none"
                 />
               </div>
 
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  className="group flex items-center gap-3 text-sm font-medium text-white hover:text-[#AC58F5] transition-colors duration-200"
-                >
-                  <span
-                    style={{ backgroundColor: "#AC58F5" }}
-                    className="w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200"
-                  >
-                    <ArrowUpRight size={16} color="#fff" />
-                  </span>
-                  Send Message
-                </button>
+              {/* Submit */}
+              <button
+                type="submit"
+                className="flex items-center justify-center gap-2 w-fit px-7 py-3 rounded-xl
+                           bg-white text-black font-semibold text-sm
+                           hover:bg-white/90 active:scale-[0.98] transition-all duration-300"
+              >
+                Send message
+                <FontAwesomeIcon icon={faArrowUpRight} size="xs" />
+              </button>
 
-                {result === "sending" && (
-                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px" }} className="text-[#555] mt-4">
-                    Sending…
-                  </p>
-                )}
-                {result === "success" && (
-                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px" }} className="text-green-500 mt-4">
-                    ✓ Message sent successfully.
-                  </p>
-                )}
-                {result === "error" && (
-                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px" }} className="text-red-500 mt-4">
-                    Something went wrong. Please try again.
-                  </p>
-                )}
-              </div>
+              {result && (
+                <p className={`text-sm ${
+                  result.includes("successfully")
+                    ? "text-green-400"
+                    : result === "Sending..."
+                    ? "text-white/50"
+                    : "text-red-400"
+                }`}>
+                  {result}
+                </p>
+              )}
 
             </form>
           </div>
 
         </div>
-
-        {/* Bottom rule */}
-        <div style={{ height: "1px", backgroundColor: "#1e1e1e" }} className="mt-24 mb-6" />
-        <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.1em" }} className="text-[#333] uppercase">
-          Prasanna Adhikari — Portfolio
-        </p>
-
       </div>
     </div>
   );
 };
 
 export default Contact;
+

@@ -5,7 +5,7 @@ const Notfound = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white px-4">
+    <div className="min-h-screen flex items-center justify-center bg-black text-white px-4">
       <div className="text-center max-w-md">
         
         {/* 404 Code */}

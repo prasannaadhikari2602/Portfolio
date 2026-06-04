@@ -4,10 +4,11 @@ import { faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-
 import Profile from "../assets/Profile.png";
 import CV from "../assets/CV.pdf";
 
-const Home = () => {
+const Home = ({ projectRef }) => {
   const scrollToProjects = () => {
-    const section = document.getElementById("projects");
-    if (section) section.scrollIntoView({ behavior: "smooth" });
+    if (projectRef?.current) {
+      projectRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (

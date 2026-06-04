@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Mail, MapPin } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faArrowUpRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 const Contact = () => {
   const [result, setResult] = useState("");
@@ -193,7 +193,7 @@ const Contact = () => {
                            hover:bg-white/90 active:scale-[0.98] transition-all duration-300"
               >
                 Send message
-                <FontAwesomeIcon icon={faArrowUpRight} size="xs" />
+                <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="xs" />
               </button>
 
               {result && (
@@ -218,4 +218,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

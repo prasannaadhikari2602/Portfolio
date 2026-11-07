@@ -19,7 +19,7 @@ const milestones = [
   },
   {
     title: "Database Management",
-    desc: "Learned MySQL and database design for building full-stack applications.",
+    desc: "Learned MySQL,PostgreSQL and database design for building full-stack applications.",
   },
   {
     title: "Full Stack Developer",

@@ -26,7 +26,7 @@ const Skills = () => {
     { name: "React",       icon: faReact,    color: "#61DAFB" },
     { name: "Python",      icon: faPython,   color: "#3776AB" },
     { name: "Django",      icon: faCode,     color: "#2BA977" },
-    { name: "MySQL",       icon: faDatabase, color: "#00758F" },
+    { name: "PostgreSQL",       icon: faDatabase, color: "#00758F" },
   ];
 
   return (

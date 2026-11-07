@@ -1,3 +1,4 @@
+
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -5,20 +6,32 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 const projects = [
   {
-    title: "Recipe App",
+    title: "Sociala - Social Networking Platform",
     description:
-      "A full-featured recipe management app built with Python and Django. Supports full CRUD operations — create, read, update, and delete recipes with a clean and intuitive interface.",
-    tags: ["Python", "Django", "SQLite", "CRUD"],
-    github: "https://github.com/prasannaadhikari2602/Recipe_App",
-    live: "#",
+      "A full-stack social networking platform built using React and Django. Users can create posts, like and comment on posts, search for users and posts, and follow other users. Includes a responsive interface and REST API integration with PostgreSQL for data management.",
+    tags: [
+      "React",
+      "JavaScript",
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "REST API",
+    ],
+    github: "https://github.com/prasannaadhikari2602/Sociala",
   },
   {
-    title: "Viber UI Clone",
+    title: "Leave Management System",
     description:
-      "A pixel-perfect Viber UI clone built using HTML and CSS. Replicates the messaging interface layout with attention to detail in design and responsiveness.",
-    tags: ["HTML", "CSS"],
-    github: "#",
-    live: "#",
+      "A role-based leave management system built using React, TypeScript, and Django REST Framework. Employees can apply for leave and track balances, managers can approve or reject team requests, and administrators can manage employees, departments, leave policies, and reports.",
+    tags: [
+      "React",
+      "TypeScript",
+      "Python",
+      "Django REST Framework",
+      "PostgreSQL",
+      "JWT",
+    ],
+    github: "https://github.com/prasannaadhikari2602/leave-management-system",
   },
 ];
 
@@ -32,12 +45,14 @@ const Projects = () => {
           <h3 className="text-sm tracking-[0.3em] uppercase text-[#AC58F5]">
             Projects
           </h3>
+
           <h1 className="text-4xl md:text-6xl font-bold mt-4">
             My{" "}
             <span className="bg-linear-to-r from-[#AC58F5] to-purple-400 bg-clip-text text-transparent">
               Projects
             </span>
           </h1>
+
           <p className="text-white/60 mt-5 max-w-xl mx-auto">
             Things I've built along the way.
           </p>
@@ -75,24 +90,22 @@ const Projects = () => {
                 ))}
               </div>
 
-              {/* Links */}
+              {/* GitHub Link */}
               <div className="flex items-center gap-4 pt-2 border-t border-white/10">
                 <a
                   href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white/60 hover:text-white text-sm transition-colors duration-300"
                 >
                   <FontAwesomeIcon icon={faGithub} />
                   GitHub
-                </a>
-                <a
-                  href={project.live}
-                  className="flex items-center gap-2 text-white/60 hover:text-[#AC58F5] text-sm transition-colors duration-300"
-                >
-                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="xs" />
-                  Live Demo
+                  <FontAwesomeIcon
+                    icon={faArrowUpRightFromSquare}
+                    size="xs"
+                  />
                 </a>
               </div>
-
             </div>
           ))}
         </div>
